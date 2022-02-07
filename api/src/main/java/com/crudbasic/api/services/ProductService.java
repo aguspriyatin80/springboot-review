@@ -17,4 +17,8 @@ public class ProductService {
     public Iterable<Product> findAll(){
         return productRepo.findAll();
     }
+
+    public Product save(Product product){ // bisa untuk SAVE dan UPDATE
+        return productRepo.save(product);        
+    }
 }
