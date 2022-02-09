@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 @Table(name="tbl_products")
@@ -14,6 +15,7 @@ public class Product implements Serializable{
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     // private static final long serialVersionUID = 1L;
     private Long id;
+    @NotEmpty(message="Field name is required")
     private String name;
     private String description;
     private double price;

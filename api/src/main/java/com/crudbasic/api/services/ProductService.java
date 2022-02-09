@@ -1,5 +1,7 @@
 package com.crudbasic.api.services;
 
+import java.util.Optional;
+
 import javax.transaction.Transactional;
 
 import com.crudbasic.api.models.entities.Product;
@@ -21,4 +23,17 @@ public class ProductService {
     public Product save(Product product){ // bisa untuk SAVE dan UPDATE
         return productRepo.save(product);        
     }
+
+    public Product findOne(Long id){
+        Optional<Product> product = productRepo.findById(id);
+        if(!product.isPresent()) {
+            return null;
+        }
+        return product.get();
+    }
+
+    public void removeOne(Long id){
+        productRepo.deleteById(id);
+    }
+
 }
